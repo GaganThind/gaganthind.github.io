@@ -22,23 +22,82 @@ footer {
     text-align: center;
 }
 
-@media all and (max-width: 999px) and (min-width: 0px) {
+/* Mobile devices */
+@media all and (max-width: 480px) and (min-width: 320px) { 
+    p {
+        margin-left: 2em;
+        margin-right: 2em;
+    }
+
+    /* Cover image */
+    body h1 span img {
+        height: 80px;
+        width: 80px;
+    }
+
+    /* Social images */
+    body span a img {
+        width: 16px;
+        height: 16px;
+    }
+} 
+
+/* iPads Mini, Tablets */
+@media all and (max-width: 768px) and (min-width: 481px) {
     p {
         margin-left: 5em;
         margin-right: 5em;
     }
-} 
 
-@media all and (max-width: 1499px) and (min-width: 1000px) {
-    p {
-        margin-left: 10em;
-        margin-right: 10em;
+    /* Cover image */
+    body h1 span img {
+        height: 120px;
+        width: 120px;
+    }
+
+    /* Social images */
+    body span a img {
+        width: 32px;
+        height: 32px;
     }
 }
 
-@media all and (min-width: 1500px) {
+/* Small screen laptops / iPad Air / iPad Pro */
+@media all and (max-width: 1024px) and (min-width: 769px) {
+    p {
+        margin-left: 5em;
+        margin-right: 5em;
+    }
+
+    /* Cover image */
+    body h1 span img {
+        height: 150px;
+        width: 150px;
+    }
+
+    /* Social images */
+    body span a img {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* Laptop/Desktop/Monitors */
+@media all and (min-width: 1025px) {
     p {
         margin-left: 15em;
         margin-right: 15em;
+    }
+
+    /* Cover image */
+    body h1 span img {
+        height: 150px;
+        width: 150px;
+    }
+
+    /* Social images */
+    body span a img {
+        width: 46px;
+        height: 46px;
     }
 }
