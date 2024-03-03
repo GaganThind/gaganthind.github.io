@@ -1,0 +1,44 @@
+html {
+    text-align: center;
+    margin-top: 2em
+}
+
+.cover {
+    border-radius: 50%;
+}
+
+h1 {
+    display: inline-block;
+}
+
+img {
+    margin: 5px 10px;
+}
+
+footer {
+    position: fixed;
+    bottom: 1em;
+    width: 100%;
+    text-align: center;
+}
+
+@media all and (max-width: 999px) and (min-width: 0px) {
+    p {
+        margin-left: 5em;
+        margin-right: 5em;
+    }
+} 
+
+@media all and (max-width: 1499px) and (min-width: 1000px) {
+    p {
+        margin-left: 10em;
+        margin-right: 10em;
+    }
+}
+
+@media all and (min-width: 1500px) {
+    p {
+        margin-left: 15em;
+        margin-right: 15em;
+    }
+}
