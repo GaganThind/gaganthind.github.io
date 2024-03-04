@@ -17,7 +17,7 @@ img {
 
 footer {
     position: fixed;
-    bottom: 1em;
+    bottom: 0em;
     width: 100%;
     text-align: center;
 }
@@ -37,8 +37,8 @@ footer {
 
     /* Social images */
     body span a img {
-        width: 16px;
-        height: 16px;
+        width: 24px;
+        height: 24px;
     }
 } 
 
@@ -63,7 +63,7 @@ footer {
 }
 
 /* Small screen laptops / iPad Air / iPad Pro */
-@media all and (max-width: 1024px) and (min-width: 769px) {
+@media all and (max-width: 1199px) and (min-width: 769px) {
     p {
         margin-left: 5em;
         margin-right: 5em;
@@ -82,8 +82,28 @@ footer {
     }
 }
 
-/* Laptop/Desktop/Monitors */
-@media all and (min-width: 1025px) {
+/* Big laptops / Monitors */
+@media all and (max-width: 1799px) and (min-width: 1200px) {
+    p {
+        margin-left: 10em;
+        margin-right: 10em;
+    }
+
+    /* Cover image */
+    body h1 span img {
+        height: 150px;
+        width: 150px;
+    }
+
+    /* Social images */
+    body span a img {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* 2K+ Monitors */
+@media all and (min-width: 1800px) {
     p {
         margin-left: 15em;
         margin-right: 15em;
@@ -97,7 +117,7 @@ footer {
 
     /* Social images */
     body span a img {
-        width: 46px;
-        height: 46px;
+        width: 40px;
+        height: 40px;
     }
 }
