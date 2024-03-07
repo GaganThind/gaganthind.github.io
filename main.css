@@ -2,12 +2,11 @@
     --radius: 50px;
     --sans: Cambria;
     text-align: center;
+    font-size: medium;
 }
 
 :root[color-mode="light"] {
     --surface1: #e6e6e6;
-    --primary: #01408e;
-    --secondary: #3c5d5c;
     --tertiary: #fff7d6;
     --element1: #111111;
     --element2: #222222;
@@ -16,8 +15,6 @@
 
 :root[color-mode="dark"] {
     --surface1: #262626;
-    --primary: #8fceff;
-    --secondary: #72faca;
     --tertiary: #eee8a9;
     --element1: #eeeeee;
     --element2: #dddddd;
@@ -34,19 +31,23 @@ html {
     background-color: var(--surface1, #e6e6e6);
 }
 
-:root[color-mode="light"] header .dark {
-    display: none;
+header {
+    padding: 1rem 0;
+    border-radius: var(--radius);
 }
 
-:root[color-mode="dark"] header .light {
-    display: none;
-}
-
-header button {
+.navbar-container {
     display: flex;
     float: right;
-    padding: 2em;
-    margin: 2em 2em 0 0;
+    text-align: right;
+    justify-content: right;
+    height: 100%;
+    align-items: center;
+}
+
+button {
+    display: flex;
+    float: right;
     cursor: pointer;
     background: none;
     border: none;
@@ -54,10 +55,7 @@ header button {
     box-shadow: var(--box-shadow);
 }
 
-header svg {
-    width: 30px;
-    height: 30px;
-    margin-left: 7px;
+button svg {
     fill: none;
     stroke: #222222;
     stroke: var(--element2, #222222);
@@ -66,9 +64,9 @@ header svg {
     stroke-width: 1.5px;
 }
 
-header button:hover svg,
-header button:focus svg,
-header button:focus {
+button:hover svg,
+button:focus svg,
+button:focus {
     outline: none;
     fill: #fff7d6;
     fill: var(--tertiary, #fff7d6);
@@ -84,30 +82,35 @@ main {
 }
 
 section {
-    padding: 0.5rem 1rem;
     margin-bottom: 5rem;
     color: #111111;
     color: var(--element1, #111111);
     background-color: #e6e6e6;
     background-color: var(--surface1, #e6e6e6);
+    /*padding: 0.5rem 1rem;
     border-radius: var(--radius);
-    /*width: 75%;
+    width: 75%;
     box-shadow: var(--box-shadow);
     transition: all 0.1s ease-in;*/
 }
 
 main h1 {
-    font-size: 2.5rem;
+    font-size: xx-large;
     line-height: 1.1;
     display: inline-block;
+    padding: 0;
 }
 
 main .cover {
     border-radius: 50%;
 }
 
-main img {
+main i {
     margin: 5px 10px;
+    color: #111111;
+    color: var(--element1, #111111);
+    background-color: #e6e6e6;
+    background-color: var(--surface1, #e6e6e6);
 }
 
 footer {
@@ -130,100 +133,130 @@ footer {
 
 /* Mobile devices */
 @media all and (max-width: 480px) and (min-width: 320px) {
+
+    /* Toggle button */
+    button svg {
+        width: 20px;
+        height: 20px;
+    }
+
     p {
         margin-left: 1em;
         margin-right: 1em;
     }
 
     /* Cover image */
-    section h1 span img {
+    section h1 img {
         height: 80px;
         width: 80px;
     }
 
-    /* Social images */
-    section span a img {
-        width: 24px;
-        height: 24px;
+    /* Social image */
+    section span a i {
+        font-size: 1.5em !important;
     }
 }
 
 /* iPads Mini, Tablets */
 @media all and (max-width: 768px) and (min-width: 481px) {
+
+    /* Toggle button */
+    button svg {
+        width: 30px;
+        height: 30px;
+    }
+
     p {
         margin-left: 5em;
         margin-right: 5em;
     }
 
     /* Cover image */
-    section h1 span img {
+    section h1 img {
         height: 120px;
         width: 120px;
     }
 
-    /* Social images */
-    section span a img {
-        width: 32px;
-        height: 32px;
+    /* Social image */
+    section span a i {
+        font-size: 1.8em !important;
     }
 }
 
 /* Small screen laptops / iPad Air / iPad Pro */
 @media all and (max-width: 1199px) and (min-width: 769px) {
+
+    /* Toggle button */
+    button svg {
+        width: 30px;
+        height: 30px;
+    }
+
     p {
         margin-left: 5em;
         margin-right: 5em;
     }
 
     /* Cover image */
-    section h1 span img {
+    section h1 img {
         height: 150px;
         width: 150px;
     }
 
-    /* Social images */
-    section span a img {
-        width: 32px;
-        height: 32px;
+    /* Social image */
+    section span a i {
+        font-size: 1.8em !important;
     }
 }
 
 /* Big laptops / Monitors */
 @media all and (max-width: 1799px) and (min-width: 1200px) {
+
+    /* Toggle button */
+    button svg {
+        width: 40px;
+        height: 40px;
+    }
+
     p {
         margin-left: 10em;
         margin-right: 10em;
     }
 
     /* Cover image */
-    section h1 span img {
+    section h1 img {
         height: 150px;
         width: 150px;
     }
 
-    /* Social images */
-    section span a img {
-        width: 32px;
-        height: 32px;
+    /* Social image */
+    section span a i {
+        font-size: 1.8em !important;
     }
 }
 
 /* 2K+ Monitors */
 @media all and (min-width: 1800px) {
+
+    /* Toggle button */
+    svg {
+        width: 40px;
+        height: 40px;
+    }
+
     p {
-        margin-left: 15em;
-        margin-right: 15em;
+        margin-left: 10em;
+        margin-right: 10em;
     }
 
     /* Cover image */
-    section h1 span img {
+    section h1 img {
         height: 150px;
         width: 150px;
     }
 
-    /* Social images */
-    section span a img {
-        width: 40px;
-        height: 40px;
+    /* Social image */
+    section span a i {
+        font-size: 2em !important;
     }
 }

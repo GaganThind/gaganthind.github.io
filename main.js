@@ -23,15 +23,18 @@ const addClickToToggleModeBtn = function() {
     toggleBtn.forEach((btn) => btn.addEventListener('click', toggleMode));
 }
 
-const toggleMode = function(e) {
+const toggleMode = function(btn) {
     const element = document.documentElement;
-    if (e.currentTarget.classList.contains("dark")) {
+    if (btn.currentTarget.classList.contains("dark")) {
         element.setAttribute("color-mode", "light");
         localStorage.setItem("color-mode", "light");
+        document.getElementById('darkBtn').style.display="none";
+        document.getElementById('lightBtn').style.display="flex";
     } else {
         element.setAttribute("color-mode", "dark");
         localStorage.setItem("color-mode", "dark");
+        document.getElementById('darkBtn').style.display="flex";
+        document.getElementById('lightBtn').style.display="none";
     }
-
 }
 
