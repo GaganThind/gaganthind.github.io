@@ -48,10 +48,16 @@ header {
 button {
     display: flex;
     float: right;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    margin: 0 auto 1.5rem;
+    color: #111111;
+    color: var(--element1, #111111);
     cursor: pointer;
     background: none;
     border: none;
-    border-radius: var(--radius);
+    border-radius: 20px;
     box-shadow: var(--box-shadow);
 }
 
