@@ -154,6 +154,10 @@ footer {
     section span a i {
         font-size: 1.5em !important;
     }
+
+    footer p {
+        margin-right: 3em;
+    }
 }
 
 /* iPads Mini, Tablets */
