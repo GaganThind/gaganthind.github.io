@@ -130,6 +130,49 @@ footer {
     font-size: x-small;
 }
 
+/* Small Mobile devices */
+@media all and (max-width: 479px) and (min-width: 0px) {
+
+    /* Toggle button */
+    button svg {
+        width: 10px;
+        height: 10px;
+    }
+
+    p {
+        margin-left: 0em;
+        margin-right: 0em;
+        font-size: smaller;
+    }
+
+    /* Cover image */
+    section h1 img {
+        height: 50px;
+        width: 50px;
+    }
+
+    /* Social image */
+    section span a i {
+        font-size: 1em !important;
+    }
+
+    footer p {
+        margin-right: 1.5em;
+    }
+
+    .footer-copyright {
+        font-size: xx-small;
+    }
+
+    .footer-copyright-logos {
+        font-size: xx-small;
+    }
+
+    button {
+        padding: 0.5rem !important;
+    }
+}
+
 /* Mobile devices */
 @media all and (max-width: 480px) and (min-width: 320px) {
 
