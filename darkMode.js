@@ -9,19 +9,26 @@ window.onload = function() {
 }
 
 const modePreference = function() {
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
     const colorMode = localStorage.getItem("color-mode");
-    if (colorMode === "dark" ||
-        (prefersDarkScheme.matches
-            && !colorMode)) {
-        document.documentElement.setAttribute("color-mode", "dark");
-        document.getElementById('darkBtn').style.display = "flex";
-        document.getElementById('lightBtn').style.display = "none";
-    } else {
-        document.documentElement.setAttribute("color-mode", "light");
-        document.getElementById('darkBtn').style.display = "none";
-        document.getElementById('lightBtn').style.display = "flex";
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    // Default to White mode
+    let darkBtnDisplay = "none";
+    let lightBtnDisplay = "flex";
+    let colorModeAttr = "light";
+
+    const darkModeCheck = prefersDarkScheme.matches && !colorMode;
+
+    // DarkMode
+    if (colorMode === "dark" || darkModeCheck) {
+        darkBtnDisplay = "flex";
+        lightBtnDisplay = "none";
+        colorModeAttr = "dark";
     }
+
+    document.getElementById('darkBtn').style.display = darkBtnDisplay;
+    document.getElementById('lightBtn').style.display = lightBtnDisplay;
+    document.documentElement.setAttribute("color-mode", colorModeAttr);
 }
 
 const addClickToToggleModeBtn = function() {
@@ -31,16 +38,22 @@ const addClickToToggleModeBtn = function() {
 
 const toggleMode = function(btn) {
     const element = document.documentElement;
-    if (btn.currentTarget.classList.contains("dark")) {
-        element.setAttribute("color-mode", "light");
-        localStorage.setItem("color-mode", "light");
-        document.getElementById('darkBtn').style.display = "none";
-        document.getElementById('lightBtn').style.display = "flex";
-    } else {
-        element.setAttribute("color-mode", "dark");
-        localStorage.setItem("color-mode", "dark");
-        document.getElementById('darkBtn').style.display = "flex";
-        document.getElementById('lightBtn').style.display = "none";
+
+    // Default to White mode
+    let darkBtnDisplay = "none";
+    let lightBtnDisplay = "flex";
+    let colorModeAttr = "light";
+
+    // DarkMode
+    if (btn.currentTarget.classList.contains("light")) {
+        darkBtnDisplay = "flex";
+        lightBtnDisplay = "none";
+        colorModeAttr = "dark";
     }
+
+    element.setAttribute("color-mode", colorModeAttr);
+    localStorage.setItem("color-mode", colorModeAttr);
+    document.getElementById('darkBtn').style.display = darkBtnDisplay;
+    document.getElementById('lightBtn').style.display = lightBtnDisplay;
 }
 
