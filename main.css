@@ -120,14 +120,7 @@ footer {
     color: var(--element1, #111111);
     background-color: #e6e6e6;
     background-color: var(--surface1, #e6e6e6);
-}
-
-.footer-copyright {
-    font-size: small;
-}
-
-.footer-copyright-logos {
-    font-size: x-small;
+    font-size: xx-small;
 }
 
 /* Small Mobile devices */
@@ -158,14 +151,6 @@ footer {
 
     footer p {
         margin-right: 1.5em;
-    }
-
-    .footer-copyright {
-        font-size: xx-small;
-    }
-
-    .footer-copyright-logos {
-        font-size: xx-small;
     }
 
     button {
