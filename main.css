@@ -21,7 +21,10 @@
     --box-shadow: 20px 20px 60px #1d1d1d, -20px -20px 60px #272727;
 }
 
-a:link {
+a:link,
+a:visited,
+a:hover,
+a:active {
     color: #111111;
     color: var(--element1, #111111);
 }
