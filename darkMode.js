@@ -1,59 +1,37 @@
 
-window.onload = function() {
+window.onload = () => {
 
     // Check if OS is using Dark or Light mode
     modePreference();
 
     // Add onClick event to toggle mode button
-    addClickToToggleModeBtn();
+    addEventToToggleModeCheckbox();
 }
 
-const modePreference = function() {
-    const colorMode = localStorage.getItem("color-mode");
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+const modePreference = () => {
+    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+    const colorModePrefereneSet = localStorage.getItem("color-mode");
     
-    // Default to White mode
-    let darkBtnDisplay = "none";
-    let lightBtnDisplay = "flex";
-    let colorModeAttr = "light";
+    const userPrefersDarkMode = prefersDarkMode.matches && !colorModePrefereneSet;
 
-    const darkModeCheck = prefersDarkScheme.matches && !colorMode;
+    const enableDarkMode = (colorModePrefereneSet === "dark" || userPrefersDarkMode);
+    document.querySelector('#toggleMode').checked = enableDarkMode;
 
-    // DarkMode
-    if (colorMode === "dark" || darkModeCheck) {
-        darkBtnDisplay = "flex";
-        lightBtnDisplay = "none";
-        colorModeAttr = "dark";
-    }
+    toggleDarkMode(document.querySelector('#toggleMode'));
+}
 
-    document.getElementById('darkBtn').style.display = darkBtnDisplay;
-    document.getElementById('lightBtn').style.display = lightBtnDisplay;
+const addEventToToggleModeCheckbox = () => {
+    const toggleMode = document.querySelector('#toggleMode');
+    toggleMode.addEventListener('change', (btn) => toggleDarkMode(btn.currentTarget));
+}
+
+const toggleDarkMode = (element) => {
+    const checked = element.checked;
+    const colorModeAttr = checked ? "dark" : "light";
+
+    document.querySelector('.fa-sun').style.display = checked ? "none" : "inline";
+    document.querySelector('.fa-moon').style.display = checked ? "inline" : "none";
+
     document.documentElement.setAttribute("color-mode", colorModeAttr);
-}
-
-const addClickToToggleModeBtn = function() {
-    const toggleBtn = document.querySelectorAll('.toggleBtn');
-    toggleBtn.forEach((btn) => btn.addEventListener('click', toggleMode));
-}
-
-const toggleMode = function(btn) {
-    const element = document.documentElement;
-
-    // Default to White mode
-    let darkBtnDisplay = "none";
-    let lightBtnDisplay = "flex";
-    let colorModeAttr = "light";
-
-    // DarkMode
-    if (btn.currentTarget.classList.contains("light")) {
-        darkBtnDisplay = "flex";
-        lightBtnDisplay = "none";
-        colorModeAttr = "dark";
-    }
-
-    element.setAttribute("color-mode", colorModeAttr);
     localStorage.setItem("color-mode", colorModeAttr);
-    document.getElementById('darkBtn').style.display = darkBtnDisplay;
-    document.getElementById('lightBtn').style.display = lightBtnDisplay;
 }
-
