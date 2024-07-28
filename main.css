@@ -19,6 +19,9 @@
     --element1: #eeeeee;
     --element2: #dddddd;
     --box-shadow: 0 4px 8px rgba(49, 49, 49, 1), 0 6px 20px 0 rgba(54, 50, 50, 1);
+    svg {
+        filter: invert(100%)
+    }
 }
 
 html {
@@ -42,22 +45,21 @@ html {
     border:1px solid gray;
     padding: 0.75em;
     border-radius:1.5em;
-    width: 1.5em;
+    width: 2em;
+    height: 2em;
     cursor:pointer;
     box-shadow: var(--box-shadow);
 }
 
 .fa-sun {
-    color: #ecd885;
-    color: var(--tertiary, #ecd885);
+    fill: #ecd885;
+    fill: var(--tertiary, #ecd885);
     position: relative;
     font-size: 1.5em;
     display: none;
 }
 
 .fa-moon {
-    color: #ffffff;
-    color: var(--tertiary, #ffffff);
     position: relative;
     font-size: 1.5em;
     display: none;
@@ -123,7 +125,11 @@ footer {
 
     /* Toggle button */
     #toggleLabel {
-        font-size: xx-small;
+        font-size: x-small;
+    }
+    svg {
+        width: 20px;
+        height: 20px;
     }
 
     p {
@@ -152,12 +158,12 @@ footer {
     }
 }
 
-/* Mobile devices */
+/* Mobile devices - iPhone 14 Pro Max*/
 @media all and (max-width: 480px) and (min-width: 320px) {
 
     /* Toggle button */
-    #toggleLabel {
-        font-size: x-small;
+    svg {
+        width: 26px;
     }
 
     p {
@@ -185,8 +191,8 @@ footer {
 @media all and (max-width: 768px) and (min-width: 481px) {
 
     /* Toggle button */
-    #toggleLabel {
-        font-size: small;
+    svg {
+        width: 30px;
     }
 
     p {
@@ -210,8 +216,8 @@ footer {
 @media all and (max-width: 1199px) and (min-width: 769px) {
 
     /* Toggle button */
-    #toggleLabel {
-        font-size: medium;
+    svg {
+        width: 30px;
     }
 
     p {
@@ -235,8 +241,8 @@ footer {
 @media all and (max-width: 1799px) and (min-width: 1200px) {
 
     /* Toggle button */
-    #toggleLabel {
-        font-size: large;
+    svg {
+        width: 30px;
     }
 
     p {
@@ -260,8 +266,8 @@ footer {
 @media all and (min-width: 1800px) {
 
     /* Toggle button */
-    #toggleLabel {
-        font-size: larger;
+    svg {
+        width: 34px;
     }
 
     p {
