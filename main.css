@@ -53,6 +53,10 @@ html {
 .fa-sun {
     fill: #ecd885;
     fill: var(--tertiary, #ecd885);
+    stroke:#ecd885;
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-linejoin:round;
     position: relative;
     font-size: 1.5em;
     display: none;
