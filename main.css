@@ -88,6 +88,10 @@ main {
 section {
     color: #111111;
     color: var(--element1, #111111);
+    padding: 0.5em 1em;
+    border-radius: var(--radius);
+    width: 75%;
+    box-shadow: var(--box-shadow);
 }
 
 main h1 {
