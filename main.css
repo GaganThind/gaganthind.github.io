@@ -123,13 +123,14 @@ footer {
     font-size: xx-small;
 }
 
-/* Small Mobile devices */
+/* Small Mobile devices - Mi A2 */
 @media all and (max-width: 319px) and (min-width: 0px) {
 
     /* Toggle button */
     #toggleLabel {
-        font-size: x-small;
+        font-size: xx-small;
     }
+
     svg {
         width: 20px;
         height: 20px;
@@ -147,17 +148,8 @@ footer {
         width: 50px;
     }
 
-    /* Social image */
-    section span a i {
-        font-size: 1em !important;
-    }
-
     footer p {
         margin-right: 1.5em;
-    }
-
-    button {
-        padding: 0.5rem !important;
     }
 }
 
@@ -180,112 +172,23 @@ footer {
         width: 80px;
     }
 
-    /* Social image */
-    section span a i {
-        font-size: 1.5em !important;
-    }
-
     footer p {
         margin-right: 3em;
     }
 }
 
-/* iPads Mini, Tablets */
-@media all and (max-width: 768px) and (min-width: 481px) {
-
-    /* Toggle button */
-    svg {
-        width: 30px;
-    }
-
+/* Small screen laptops / iPad Air / iPad Pro / iPads Mini, Tablets */
+@media all and (max-width: 1199px) and (min-width: 481px) {
     p {
         margin-left: 5em;
         margin-right: 5em;
     }
-
-    /* Cover image */
-    section h1 img {
-        height: 120px;
-        width: 120px;
-    }
-
-    /* Social image */
-    section span a i {
-        font-size: 1.8em !important;
-    }
 }
 
-/* Small screen laptops / iPad Air / iPad Pro */
-@media all and (max-width: 1199px) and (min-width: 769px) {
-
-    /* Toggle button */
-    svg {
-        width: 30px;
-    }
-
-    p {
-        margin-left: 5em;
-        margin-right: 5em;
-    }
-
-    /* Cover image */
-    section h1 img {
-        height: 150px;
-        width: 150px;
-    }
-
-    /* Social image */
-    section span a i {
-        font-size: 1.8em !important;
-    }
-}
-
-/* Big laptops / Monitors */
-@media all and (max-width: 1799px) and (min-width: 1200px) {
-
-    /* Toggle button */
-    svg {
-        width: 30px;
-    }
-
+/* Big laptops / Monitors / Others */
+@media all and (min-width: 1200px) {
     p {
         margin-left: 10em;
         margin-right: 10em;
-    }
-
-    /* Cover image */
-    section h1 img {
-        height: 150px;
-        width: 150px;
-    }
-
-    /* Social image */
-    section span a i {
-        font-size: 1.8em !important;
-    }
-}
-
-/* 2K+ Monitors */
-@media all and (min-width: 1800px) {
-
-    /* Toggle button */
-    svg {
-        width: 34px;
-    }
-
-    p {
-        margin-left: 10em;
-        margin-right: 10em;
-    }
-
-    /* Cover image */
-    section h1 img {
-        height: 150px;
-        width: 150px;
-    }
-
-    /* Social image */
-    section span a i {
-        font-size: 2em !important;
     }
 }
