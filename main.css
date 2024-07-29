@@ -81,16 +81,13 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1rem 0.5rem;
-    min-height: calc(50vh - 4rem);
+    padding: 1em 0.5em;
+    min-height: calc(50vh - 4em);
 }
 
 section {
-    margin-bottom: 5rem;
     color: #111111;
     color: var(--element1, #111111);
-    background-color: #e6e6e6;
-    background-color: var(--surface1, #e6e6e6);
 }
 
 main h1 {
