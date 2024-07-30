@@ -81,8 +81,8 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1em 0.5em;
-    min-height: calc(50vh - 4em);
+    top: 10%;
+    position: absolute;
 }
 
 section {
@@ -94,7 +94,6 @@ main h1 {
     font-size: xx-large;
     line-height: 1.1;
     display: inline-block;
-    padding: 0;
 }
 
 .cover {
@@ -137,6 +136,10 @@ footer {
         margin-left: 0em;
         margin-right: 0em;
         font-size: smaller;
+    }
+
+    main h1 {
+        font-size: large;
     }
 
     /* Cover image */
