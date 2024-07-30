@@ -9,28 +9,22 @@
     --surface1: #e6e6e6;
     --tertiary: #ecd885;
     --element1: #111111;
-    --element2: #222222;
     --box-shadow: 0 4px 8px rgba(202, 202, 202, 1), 0 6px 20px 0 rgba(255, 255, 255, 1);
 }
 
 :root[color-mode="dark"] {
     --surface1: #262626;
-    --tertiary: #ffffff;
     --element1: #eeeeee;
-    --element2: #dddddd;
     --box-shadow: 0 4px 8px rgba(49, 49, 49, 1), 0 6px 20px 0 rgba(54, 50, 50, 1);
+
     svg {
         filter: invert(100%)
     }
 }
 
 html {
-    padding: 0;
-    margin: 0;
     font-family: var(--sans);
-    font-size: 1em;
     line-height: 1.5;
-    background-color: #e6e6e6;
     background-color: var(--surface1, #e6e6e6);
 }
 
@@ -39,24 +33,23 @@ html {
 }
 
 #toggleLabel {
-    position:absolute;
-    top:1em;
-    right:1em;
+    position: absolute;
+    top: 1em;
+    right: 1em;
     padding: 0.75em;
-    border-radius:1.5em;
+    border-radius: 1.5em;
     width: 2em;
     height: 2em;
-    cursor:pointer;
+    cursor: pointer;
     box-shadow: var(--box-shadow);
 }
 
 .fa-sun {
-    fill: #ecd885;
     fill: var(--tertiary, #ecd885);
-    stroke:#ecd885;
-    stroke-width:2;
-    stroke-linecap:round;
-    stroke-linejoin:round;
+    stroke: var(--tertiary, #ecd885);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
     position: relative;
     font-size: 1.5em;
     display: none;
@@ -72,7 +65,6 @@ a:link,
 a:visited,
 a:hover,
 a:active {
-    color: #111111;
     color: var(--element1, #111111);
 }
 
@@ -86,7 +78,6 @@ main {
 }
 
 section {
-    color: #111111;
     color: var(--element1, #111111);
 }
 
@@ -104,7 +95,6 @@ main i {
     margin: 5px 10px;
     color: #111111;
     color: var(--element1, #111111);
-    background-color: #e6e6e6;
     background-color: var(--surface1, #e6e6e6);
 }
 
@@ -112,11 +102,10 @@ footer {
     position: fixed;
     bottom: 0em;
     width: 100%;
-    color: #111111;
     color: var(--element1, #111111);
-    background-color: #e6e6e6;
     background-color: var(--surface1, #e6e6e6);
     font-size: xx-small;
+    line-height: 1;
 }
 
 /* Small Mobile devices - Mi A2 */
@@ -133,8 +122,6 @@ footer {
     }
 
     p {
-        margin-left: 0em;
-        margin-right: 0em;
         font-size: smaller;
     }
 
