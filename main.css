@@ -42,6 +42,7 @@ html {
     height: 2em;
     cursor: pointer;
     box-shadow: var(--box-shadow);
+    display: none;
 }
 
 .fa-sun {
@@ -52,7 +53,7 @@ html {
     stroke-linejoin: round;
     position: relative;
     font-size: 1.5em;
-    display: none;
+    display: inline;
 }
 
 .fa-moon {
