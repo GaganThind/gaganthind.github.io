@@ -1,15 +1,23 @@
-let version = '2.0';
+let version = '1.2';
 
-let dynamicCache = `dynamicCache-${version}`;
+let staticCache = `staticCache-${version}`;
+let imageCache = `imageCache-${version}`;
 
-let assets = [];
-
-const MAX_CACHE_DURATION_IN_DAYS = 1;
+let assets = ['/', '/assets/js/darkMode.js', '/assets/js/main.js', '/assets/css/main.css'];
+let images = ['/assets/img/avatar.png', '/assets/img/favicon.png'];
 
 // Service worker is installed
 self.addEventListener('install', (event) => {
     event.waitUntil(
-        self.skipWaiting()
+        caches
+            .open(staticCache)
+            .then(cache => cache.addAll(assets))
+            .then(() => {
+                caches
+                    .open(imageCache)
+                    .then(cache => cache.addAll(images))
+            })
+            .then(self.skipWaiting())
     );
 });
 
@@ -21,7 +29,7 @@ self.addEventListener('activate', (event) => {
             .then(keys => {
                 return Promise.all(
                     keys
-                        .filter(key => key !== dynamicCache)
+                        .filter(key => key !== staticCache && key !== imageCache)
                         .map(key => caches.delete(key))
                 );
             })
@@ -35,60 +43,26 @@ self.addEventListener('fetch', (event) => {
         return;
     }
 
-    const fetchFromCacheOnly = (event) => caches.match(event.request, { ignoreSearch: true });
+    const fetchFromServer = () => {
+        return fetch(event.request).then(fetchResponse => handleFetchResponse(fetchResponse, event));
+    };
 
-    const isValidCache = cachedResponse => {
-        if (!cachedResponse) return false;
-
-        const maxDate = cachedResponse.headers.get('MAX_TIME_TO_LIVE');
-        if (maxDate === undefined) return false;
-        return (maxDate && (parseInt(maxDate) > Date.now()));
-    }
-
-    const updateCacheFromServer = (fetchResponse, event) => {
+    const handleFetchResponse = (fetchResponse, event) => {
         const type = fetchResponse.headers.get('content-type');
         if (type === null || type === undefined) return fetchResponse;
 
-        const DAY_IN_MILLISECONDS = 1000 * 60 * 60 * 24;
-        const EXPIRATION_DATE = Date.now() + (DAY_IN_MILLISECONDS * MAX_CACHE_DURATION_IN_DAYS);
-        const responseCopy = fetchResponse.clone();
-        let headers = new Headers(responseCopy.headers);
-        headers.append('MAX_TIME_TO_LIVE', EXPIRATION_DATE);
+        const cacheType = type.match(/^image\//i) ? imageCache : staticCache;
 
-        caches.open(dynamicCache)
+        return caches.open(cacheType)
             .then(cache => {
-                responseCopy.blob().then(body => {
-                    cache.put(event.request, new Response(body, {
-                        status: responseCopy.status,
-                        statusText: responseCopy.statusText,
-                        headers: headers
-                    }));
-                })
+                cache.put(event.request, fetchResponse.clone());
+                return fetchResponse;
             });
-    }
-
-    const fetchFromServer = event => {
-        return fetch(event.request)
-            .then(
-                fetchResponse => {
-                    if (fetchResponse.ok) updateCacheFromServer(fetchResponse, event);
-                    return fetchResponse;
-                },
-                fetchFromCacheOnly(event)
-            )
-            .catch(fetchFromCacheOnly(event));
     };
 
-    /**
-     * Check if cached response is fresh in the cache
-     *      Yes, return cachedResponse
-     *      No, then 
-     *          check if server is online, then serve from serve
-     *          else use cached expired value till server comes up
-     */
     event.respondWith(
-        fetchFromCacheOnly(event)
-            .then(cached => isValidCache(cached) ? cached : undefined)
-            .then(cached => cached || fetchFromServer(event))
+        caches
+            .match(event.request)
+            .then(cached => cached || fetchFromServer())
     );
 });
