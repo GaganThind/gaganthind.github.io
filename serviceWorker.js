@@ -1,10 +1,8 @@
-let version = '1.2';
+let version = '1.3';
 
 let staticCache = `staticCache-${version}`;
-let imageCache = `imageCache-${version}`;
 
-let assets = ['/', '/assets/js/darkMode.js', '/assets/js/main.js', '/assets/css/main.css'];
-let images = ['/assets/img/avatar.png', '/assets/img/favicon.png'];
+const assets = ['/', '/assets/js/darkMode.js', '/assets/js/main.js', '/assets/css/main.css', '/assets/img/avatar.png', '/assets/img/favicon.png'];
 
 // Service worker is installed
 self.addEventListener('install', (event) => {
@@ -12,11 +10,6 @@ self.addEventListener('install', (event) => {
         caches
             .open(staticCache)
             .then(cache => cache.addAll(assets))
-            .then(() => {
-                caches
-                    .open(imageCache)
-                    .then(cache => cache.addAll(images))
-            })
             .then(self.skipWaiting())
     );
 });
@@ -29,7 +22,7 @@ self.addEventListener('activate', (event) => {
             .then(keys => {
                 return Promise.all(
                     keys
-                        .filter(key => key !== staticCache && key !== imageCache)
+                        .filter(key => key !== staticCache)
                         .map(key => caches.delete(key))
                 );
             })
@@ -51,9 +44,7 @@ self.addEventListener('fetch', (event) => {
         const type = fetchResponse.headers.get('content-type');
         if (type === null || type === undefined) return fetchResponse;
 
-        const cacheType = type.match(/^image\//i) ? imageCache : staticCache;
-
-        return caches.open(cacheType)
+        return caches.open(staticCache)
             .then(cache => {
                 cache.put(event.request, fetchResponse.clone());
                 return fetchResponse;
