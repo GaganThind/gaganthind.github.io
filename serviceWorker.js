@@ -1,15 +1,18 @@
-let version = '2.0';
+let version = '2.1';
 
-let dynamicCache = `dynamicCache-${version}`;
+let staticCache = `staticCache-${version}`;
 
-let assets = [];
+const assets = ['/', '/assets/js/darkMode.js', '/assets/js/main.js', '/assets/css/main.css', '/assets/img/avatar.png', '/assets/img/favicon.png'];
 
 const MAX_CACHE_DURATION_IN_DAYS = 1;
 
 // Service worker is installed
 self.addEventListener('install', (event) => {
     event.waitUntil(
-        self.skipWaiting()
+        caches
+        .open(staticCache)
+        .then(cache => cache.addAll(assets))
+        .then(self.skipWaiting())
     );
 });
 
@@ -21,7 +24,7 @@ self.addEventListener('activate', (event) => {
             .then(keys => {
                 return Promise.all(
                     keys
-                        .filter(key => key !== dynamicCache)
+                        .filter(key => key !== staticCache)
                         .map(key => caches.delete(key))
                 );
             })
@@ -55,7 +58,7 @@ self.addEventListener('fetch', (event) => {
         let headers = new Headers(responseCopy.headers);
         headers.append('MAX_TIME_TO_LIVE', EXPIRATION_DATE);
 
-        caches.open(dynamicCache)
+        caches.open(staticCache)
             .then(cache => {
                 responseCopy.blob().then(body => {
                     cache.put(event.request, new Response(body, {
