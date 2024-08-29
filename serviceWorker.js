@@ -1,4 +1,4 @@
-let version = '1.1';
+let version = '1.2';
 
 let staticCache = `staticCache-${version}`;
 let imageCache = `imageCache-${version}`;
@@ -49,21 +49,15 @@ self.addEventListener('fetch', (event) => {
 
     const handleFetchResponse = (fetchResponse, event) => {
         const type = fetchResponse.headers.get('content-type');
-        const cacheCopy = fetchResponse.clone();
+        if (type === null || type === undefined) return fetchResponse;
 
-        if (type && type.match(/^image\//i)) {
-            return caches.open(imageCache)
-                .then(cache => {
-                    cache.put(event.request, cacheCopy);
-                    return fetchResponse;
-                });
-        } else {
-            return caches.open(staticCache)
-                .then(cache => {
-                    cache.put(event.request, cacheCopy);
-                    return fetchResponse;
-                });
-        }
+        const cacheType = type.match(/^image\//i) ? imageCache : staticCache;
+
+        return caches.open(cacheType)
+            .then(cache => {
+                cache.put(event.request, fetchResponse.clone());
+                return fetchResponse;
+            });
     };
 
     event.respondWith(
