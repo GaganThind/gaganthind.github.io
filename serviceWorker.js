@@ -1,4 +1,5 @@
-let version = '1.0';
+let version = '1.1';
+
 let staticCache = `staticCache-${version}`;
 let imageCache = `imageCache-${version}`;
 
@@ -16,6 +17,7 @@ self.addEventListener('install', (event) => {
                     .open(imageCache)
                     .then(cache => cache.addAll(images))
             })
+            .then(self.skipWaiting())
     );
 });
 
@@ -27,7 +29,7 @@ self.addEventListener('activate', (event) => {
             .then(keys => {
                 return Promise.all(
                     keys
-                        .filter(key => key != staticCache && key != imageCache)
+                        .filter(key => key !== staticCache && key !== imageCache)
                         .map(key => caches.delete(key))
                 );
             })
@@ -42,11 +44,7 @@ self.addEventListener('fetch', (event) => {
     }
 
     const fetchFromServer = () => {
-        return fetch(event.request)
-            .then(
-                fetchResponse => handleFetchResponse(fetchResponse, event),
-                serviceUnavailable
-            )
+        return fetch(event.request).then(fetchResponse => handleFetchResponse(fetchResponse, event));
     };
 
     const handleFetchResponse = (fetchResponse, event) => {
@@ -68,19 +66,9 @@ self.addEventListener('fetch', (event) => {
         }
     };
 
-    const serviceUnavailable = () => {
-        return new Response('<h1>Service Unavailable</h1>', {
-            status: 503,
-            statusText: 'Service Unavailable',
-            headers: new Headers({
-                'Content-Type': 'text/html'
-            })
-        })
-    };
-
     event.respondWith(
         caches
             .match(event.request)
-            .then(cached => cached || fetchFromServer)
+            .then(cached => cached || fetchFromServer())
     );
 });
