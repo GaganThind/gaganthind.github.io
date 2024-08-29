@@ -7,7 +7,7 @@
 
 :root[color-mode="light"] {
     --surface1: #e6e6e6;
-    --tertiary: #262626;
+    --tertiary: #555353;
     --element1: #111111;
     --box-shadow: 0 4px 8px rgba(202, 202, 202, 1), 0 6px 20px 0 rgba(255, 255, 255, 1);
 }
@@ -58,7 +58,7 @@ html {
 }
 
 .fa-moon {
-    fill: var(--tertiary, #262626);
+    fill: var(--tertiary, #555353);
     position: relative;
     font-size: 1.5em;
     display: none;
