@@ -22,8 +22,8 @@ const DARKMODE = {
             const checked = element.checked;
             const colorModeAttr = checked ? "dark" : "light";
 
-            document.querySelector('.fa-sun').style.display = checked ? "none" : "inline";
-            document.querySelector('.fa-moon').style.display = checked ? "inline" : "none";
+            document.querySelector('.fa-sun').style.display = checked ? "inline" : "none";
+            document.querySelector('.fa-moon').style.display = checked ? "none" : "inline";
 
             document.documentElement.setAttribute("color-mode", colorModeAttr);
             localStorage.setItem("color-mode", colorModeAttr);

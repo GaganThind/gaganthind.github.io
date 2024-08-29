@@ -7,17 +7,18 @@
 
 :root[color-mode="light"] {
     --surface1: #e6e6e6;
-    --tertiary: #ecd885;
+    --tertiary: #262626;
     --element1: #111111;
     --box-shadow: 0 4px 8px rgba(202, 202, 202, 1), 0 6px 20px 0 rgba(255, 255, 255, 1);
 }
 
 :root[color-mode="dark"] {
     --surface1: #262626;
+    --tertiary: #ecd885;
     --element1: #eeeeee;
     --box-shadow: 0 4px 8px rgba(49, 49, 49, 1), 0 6px 20px 0 rgba(54, 50, 50, 1);
 
-    svg {
+    svg:not(.fa-sun) {
         filter: invert(100%)
     }
 }
@@ -57,6 +58,7 @@ html {
 }
 
 .fa-moon {
+    fill: var(--tertiary, #262626);
     position: relative;
     font-size: 1.5em;
     display: none;
