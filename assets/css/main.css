@@ -94,13 +94,6 @@ main h1 {
     border-radius: 50%;
 }
 
-main i {
-    margin: 5px 10px;
-    color: #111111;
-    color: var(--element1, #111111);
-    background-color: var(--surface1, #e6e6e6);
-}
-
 footer {
     position: fixed;
     bottom: 0em;
