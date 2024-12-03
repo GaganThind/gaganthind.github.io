@@ -72,12 +72,9 @@ a:active {
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    top: 10%;
-    position: absolute;
+    top: 5%;
+    position: fixed;
+    width: 100%;
 }
 
 section {
@@ -106,7 +103,6 @@ footer {
 
 /* Small Mobile devices - Mi A2 */
 @media all and (max-width: 319px) and (min-width: 0px) {
-
     /* Toggle button */
     #toggleLabel {
         font-size: xx-small;
@@ -117,8 +113,10 @@ footer {
         height: 20px;
     }
 
-    p {
+    p,
+    section div {
         font-size: smaller;
+        line-height: 1.25em;
     }
 
     main h1 {
@@ -138,15 +136,16 @@ footer {
 
 /* Mobile devices - iPhone 14 Pro Max*/
 @media all and (max-width: 480px) and (min-width: 320px) {
-
     /* Toggle button */
     svg {
         width: 26px;
     }
 
-    p {
+    p,
+    section div {
         margin-left: 1em;
         margin-right: 1em;
+        line-height: 1.25em;
     }
 
     /* Cover image */
@@ -162,15 +161,23 @@ footer {
 
 /* Small screen laptops / iPad Air / iPad Pro / iPads Mini, Tablets */
 @media all and (max-width: 1199px) and (min-width: 481px) {
-    p {
+    p,
+    section div {
         margin-left: 5em;
         margin-right: 5em;
+    }
+
+    /* Cover image */
+    section h1 img {
+        height: 100px;
+        width: 100px;
     }
 }
 
 /* Big laptops / Monitors / Others */
 @media all and (min-width: 1200px) {
-    p {
+    p,
+    section div {
         margin-left: 10em;
         margin-right: 10em;
     }
