@@ -1,4 +1,4 @@
-let version = '2.2';
+let version = '2.2.1';
 
 let staticCache = `staticCache-${version}`;
 
@@ -34,7 +34,7 @@ self.addEventListener('fetch', (event) => {
     if (event.request.method !== 'GET') {
         // Don't intercept non-GET requests
         return;
-    }
+    };
 
     const fetchFromServer = () => {
         return fetch(event.request).then(fetchResponse => handleFetchResponse(fetchResponse, event));
