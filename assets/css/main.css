@@ -87,7 +87,7 @@ main h1 {
     display: inline-block;
 }
 
-.cover {
+main section h1 picture img {
     border-radius: 50%;
 }
 
@@ -124,12 +124,6 @@ footer {
         font-size: large;
     }
 
-    /* Cover image */
-    section h1 img {
-        height: 50px;
-        width: 50px;
-    }
-
     footer p {
         margin-right: 1.5em;
     }
@@ -149,12 +143,6 @@ footer {
         line-height: 1.25em;
     }
 
-    /* Cover image */
-    section h1 img {
-        height: 80px;
-        width: 80px;
-    }
-
     footer p {
         margin-right: 3em;
     }
@@ -166,12 +154,6 @@ footer {
     section div {
         margin-left: 5em;
         margin-right: 5em;
-    }
-
-    /* Cover image */
-    section h1 img {
-        height: 100px;
-        width: 100px;
     }
 }
 

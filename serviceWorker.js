@@ -1,4 +1,4 @@
-let version = '2.2';
+let version = '2.4';
 
 let staticCache = `staticCache-${version}`;
 
