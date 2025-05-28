@@ -1,8 +1,8 @@
-let version = '2.4.3';
+let version = '2.4.4';
 
 let staticCache = `staticCache-${version}`;
 
-const assets = ['/', '/assets/js/darkMode.js', '/assets/js/main.js', '/assets/css/main.css', '/assets/img/favicon.png'];
+const assets = ['/', '/assets/js/darkMode.js', '/assets/js/main.js', '/assets/css/main.css'];
 
 // Service worker is installed
 self.addEventListener('install', (event) => {
