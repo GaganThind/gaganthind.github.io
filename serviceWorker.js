@@ -1,4 +1,4 @@
-const version = '2.4.6';
+const version = '2.5.0';
 const staticCache = `staticCache-${version}`;
 
 const assets = ['/', '/assets/js/main.js', '/assets/css/main.css'];
