@@ -1,8 +1,7 @@
-let version = '2.4.5';
+const version = '2.4.6';
+const staticCache = `staticCache-${version}`;
 
-let staticCache = `staticCache-${version}`;
-
-const assets = ['/', '/assets/js/darkMode.js', '/assets/js/main.js', '/assets/css/main.css'];
+const assets = ['/', '/assets/js/main.js', '/assets/css/main.css'];
 
 // Service worker is installed
 self.addEventListener('install', (event) => {
@@ -41,9 +40,6 @@ self.addEventListener('fetch', (event) => {
     };
 
     const handleFetchResponse = (fetchResponse, event) => {
-        const type = fetchResponse.headers.get('content-type');
-        if (type === null || type === undefined) return fetchResponse;
-
         return caches.open(staticCache)
             .then(cache => {
                 cache.put(event.request, fetchResponse.clone());
