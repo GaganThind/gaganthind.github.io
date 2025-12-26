@@ -7,7 +7,6 @@
 
 	<title>Gagan Thind</title>
 
-	<!-- Favicon -->
 	<link rel="icon" type="image/png" href="/assets/img/favicon/favicon-96x96.png" sizes="96x96" />
 	<link rel="icon" type="image/svg+xml" href="/assets/img/favicon/favicon.svg" />
 	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" />
@@ -15,88 +14,71 @@
 	<meta name="apple-mobile-web-app-title" content="GaganThind" />
 	<link rel="manifest" href="/assets/img/favicon/site.webmanifest" />
 
-	<!-- css styles -->
-	<style>:root{--radius:50px;--sans:Cambria;text-align:center;font-size:medium}:root[color-mode="light"]{--surface1:#e6e6e6;--tertiary:#555353;--element1:#111111}:root[color-mode="dark"]{--surface1:#262626;--tertiary:#ecd885;--element1:#eeeeee;svg:not(.fa-sun){filter:invert(100%)}}html{font-family:var(--sans);line-height:1.5;background-color:var(--surface1,#e6e6e6)}#toggleMode{display:none}#toggleLabel{position:absolute;top:1em;right:1em;padding:.25em;width:2em;height:2em;cursor:pointer;display:none}.fa-sun{fill:var(--tertiary,#ecd885);stroke:var(--tertiary,#ecd885);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;position:relative;font-size:1.5em;display:inline}.fa-moon{fill:var(--tertiary,#555353);position:relative;font-size:1.5em;display:none}a:link,a:visited,a:hover,a:active{color:var(--element1,#111111)}main{top:5%;position:fixed;width:100%}section{color:var(--element1,#111111)}main h1{font-size:xx-large;line-height:1.1;display:inline-block}main section h1 picture img{border-radius:50%}footer{position:fixed;bottom:0em;width:100%;color:var(--element1,#111111);background-color:var(--surface1,#e6e6e6);font-size:xx-small;line-height:1}@media all and (max-width:319px) and (min-width:0){#toggleLabel{font-size:xx-small}svg{width:20px;height:20px}p,section div{font-size:smaller;line-height:1.25em;margin-right:1em}main h1{font-size:large}footer p{margin-right:1.5em}}@media all and (max-width:480px) and (min-width:320px){svg{width:26px}p,section div{margin-left:1em;margin-right:1em;line-height:1.25em}footer p{margin-right:3em}}@media all and (max-width:1199px) and (min-width:481px){p,section div{margin-left:5em;margin-right:5em}}@media all and (min-width:1200px){p,section div{margin-left:10em;margin-right:10em}}</style>
+	<style>:root{--sans:Cambria;text-align:center;font-size:medium}:root[color-mode="light"]{--surface1:#e6e6e6;--tertiary:#555353;--element1:#111111}:root[color-mode="dark"]{--surface1:#262626;--tertiary:#ecd885;--element1:#eeeeee;svg:not(.fa-sun){filter:invert(100%);transition:filter 0.3s ease}}html{font-family:var(--sans);line-height:1.5;background-color:var(--surface1,#e6e6e6);transition:background-color 0.3s ease}#toggleMode{display:none}#toggleLabel{position:absolute;top:1em;right:1em;width:2em;height:2em;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform 0.2s ease;z-index:1000}#toggleLabel:hover{transform:scale(1.1)}.fa-sun{fill:var(--tertiary,#555353);stroke:var(--tertiary,#555353);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;font-size:1.5em;display:inline;transition:opacity 0.3s ease,fill 0.3s ease,stroke 0.3s ease;pointer-events:none}.fa-moon{fill:var(--tertiary,#ecd885);font-size:1.5em;display:none;transition:opacity 0.3s ease,fill 0.3s ease;pointer-events:none}a{color:var(--element1,#111111);transition:color 0.3s ease;display:inline-block}a svg{display:block;width:30px;height:30px}section a:not(:last-child){margin-right:.5em}a:focus,#toggleLabel:focus-within{outline:2px solid var(--tertiary,#555353);outline-offset:4px;border-radius:4px}main{top:5%;position:fixed;width:100%;height:90%;overflow-y:auto;z-index:1}section{color:var(--element1,#111111);transition:color 0.3s ease}main h1{font-size:xx-large;line-height:1.1;display:inline-block}main h1 img{border-radius:50%}footer{position:fixed;bottom:0;width:100%;color:var(--element1,#111111);background-color:var(--surface1,#e6e6e6);font-size:xx-small;line-height:1;transition:color 0.3s ease,background-color 0.3s ease;z-index:10}footer a:not(:last-child){margin-right:.5em}@media (max-width:319px){#toggleLabel{font-size:xx-small;width:1.8em;height:1.8em}svg{width:20px;height:20px}p,section div{font-size:smaller;line-height:1.25em;margin-inline:1em}main h1{font-size:large}footer p{margin-right:1.5em}}@media (max-width:480px) and (min-width:320px){#toggleLabel{width:2em;height:2em}svg{width:26px;height:26px}p,section div{margin-inline:1em;line-height:1.25em}footer p{margin-right:3em}}@media (max-width:1199px) and (min-width:481px){p,section div{margin-inline:5em}}@media (min-width:1200px){p,section div{margin-inline:10em}}</style>
 
-	<!-- javascript -->
-	 <!-- Service Worker -->
-	 <script>const APP={init(){if('serviceWorker' in navigator){navigator.serviceWorker.register('/serviceWorker.js')}else{console.warn('Service workers are not supported.')}}};document.addEventListener('DOMContentLoaded',APP.init)</script>
-
-	 <!-- Dark Mode toogle -->
-	 <script>const DARKMODE={init(){const modePreference=()=>{const prefersDarkMode=window.matchMedia('(prefers-color-scheme: dark)');const colorModePrefereneSet=localStorage.getItem("color-mode");const userPrefersDarkMode=prefersDarkMode.matches&&!colorModePrefereneSet;const enableDarkMode=(colorModePrefereneSet==="dark"||userPrefersDarkMode);document.querySelector('#toggleMode').checked=enableDarkMode;toggleDarkMode(document.querySelector('#toggleMode'))};const addEventToToggleModeCheckbox=()=>{const toggleMode=document.querySelector('#toggleMode');toggleMode.addEventListener('change',(btn)=>toggleDarkMode(btn.currentTarget))};const toggleDarkMode=(element)=>{const checked=element.checked;const colorModeAttr=checked?"dark":"light";document.querySelector('.fa-sun').style.display=checked?"inline":"none";document.querySelector('.fa-moon').style.display=checked?"none":"inline";document.documentElement.setAttribute("color-mode",colorModeAttr);localStorage.setItem("color-mode",colorModeAttr)};document.querySelector('#toggleLabel').style.display="inline";modePreference();addEventToToggleModeCheckbox()}};document.addEventListener('DOMContentLoaded',DARKMODE.init)</script>
+	<script>const initDarkMode=()=>{const toggleMode=document.querySelector("#toggleMode");const toggleLabel=document.querySelector("#toggleLabel");const sunIcon=document.querySelector(".fa-sun");const moonIcon=document.querySelector(".fa-moon");const toggleDarkMode=(element)=>{const checked=element.checked;sunIcon.style.display=checked?"inline":"none";moonIcon.style.display=checked?"none":"inline";const colorModeAttr=checked?"dark":"light";document.documentElement.setAttribute("color-mode",colorModeAttr);localStorage.setItem("color-mode",colorModeAttr)};const prefersDarkMode=window.matchMedia('(prefers-color-scheme: dark)');const storedColorMode=localStorage.getItem("color-mode");const enableDarkMode=storedColorMode==="dark"||(prefersDarkMode.matches&&!storedColorMode);toggleMode.checked=enableDarkMode;toggleDarkMode(toggleMode);toggleLabel.style.display="flex";toggleMode.addEventListener('change',(e)=>toggleDarkMode(e.currentTarget))};const initServiceWorker=()=>{if('serviceWorker' in navigator){navigator.serviceWorker.register('/serviceWorker.js')}};document.addEventListener('DOMContentLoaded',()=>{initServiceWorker();initDarkMode()})</script>
 </head>
 
 <body>
 	<header>
-		<!-- Dark Mode code -->
-		<input type="checkbox" id="toggleMode">
-		<label for="toggleMode" id="toggleLabel">
-			<!-- Sun Icon -->
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" class="fa-sun">
-				<path
-					d="M12 3V4M12 20V21M4 12H3M6.31412 6.31412L5.5 5.5M17.6859 6.31412L18.5 5.5M6.31412 17.69L5.5 18.5001M17.6859 17.69L18.5 18.5001M21 12H20M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z" />
+		<input type="checkbox" id="toggleMode" aria-label="Toggle dark mode">
+		<label for="toggleMode" id="toggleLabel" aria-label="Toggle dark mode">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fa-sun">
+				<path d="M12 3V4M12 20V21M4 12H3M6.31412 6.31412L5.5 5.5M17.6859 6.31412L18.5 5.5M6.31412 17.69L5.5 18.5001M17.6859 17.69L18.5 18.5001M21 12H20M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z" />
 			</svg>
-			<!-- Moon Icon -->
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30" class="fa-moon">
-				<path
-					d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z" />
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-moon">
+				<path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z" />
 			</svg>
 		</label>
 	</header>
 	<main>
 		<section>
 			<h1>
-				<picture>
-					<source media="(min-width: 1200px)" srcset="/assets/img/avatar/avatar.png">
-					<source media="(min-width: 481px)" srcset="/assets/img/avatar/avatar_100x100.png">
-					<source media="(min-width: 320px)" srcset="/assets/img/avatar/avatar_80x80.png">
-					<img src="/assets/img/avatar/avatar_50x50.png" alt="Cover">
-				</picture>
-			</h1><h1>Gagan Thind</h1>
+				<img src="/assets/img/avatar/avatar.png"
+					 srcset="/assets/img/avatar/avatar_50x50.png 50w,
+					 		 /assets/img/avatar/avatar_80x80.png 80w,
+							 /assets/img/avatar/avatar_100x100.png 100w,
+							 /assets/img/avatar/avatar.png 200w"
+					 sizes="(max-width: 319px) 50px,
+					 		(max-width: 480px) 80px,
+							(max-width: 1199px) 100px,
+							200px"
+					 alt="Gagan Thind">
+				Gagan Thind
+			</h1>
 			<p>Hi, I am a Lead Software (Backend) Engineer working at OpenText.</p>
 			<div><b>My Tech Stack:</b></div>
 			<div>Java</div>
 			<div>Spring framework and Spring Boot</div>
 			<div>Git (Github, Gitlab and Bitbucket)</div>
 			<div>SQL</div>
-			<div>HTML, CSS and javascipt</div>
-			<div><a href="https://www.credly.com/badges/6f7698f6-a03b-484f-bc7c-c1cb6fc670b1/public_url"target="_blank">AWS</a></div>
-			<p>Fell free to reach out at below links</p>
+			<div>HTML, CSS and javascript</div>
+			<div><a href="https://www.credly.com/badges/6f7698f6-a03b-484f-bc7c-c1cb6fc670b1/public_url" target="_blank" rel="noopener noreferrer">AWS</a></div>
+			<p>Feel free to reach out at below links</p>
 
-			<!-- Github -->
-			<span title="Github">
-				<a href="https://www.github.com/gaganthind" target="_blank">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="32">
-						<path
-							d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
-					</svg></a></span>
-			&nbsp;&nbsp;
+			<a href="https://www.github.com/gaganthind" target="_blank" rel="noopener noreferrer" aria-label="Github profile">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">
+					<path
+						d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+				</svg></a>
 
-			<!-- Gitlab -->
-			<span title="Gitlab">
-				<a href="https://www.gitlab.com/gaganthind" target="_blank">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="30" height="32">
-						<path
-							d="M0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64C28.7 32 0 60.7 0 96zm337.5 12.5l44.6 116.4 .4 1.2c5.6 16.8 7.2 35.2 2.3 52.5c-5 17.2-15.4 32.4-29.8 43.3l-.2 .1-68.4 51.2-54.1 40.9c-.5 .2-1.1 .5-1.7 .8c-2 1-4.4 2-6.7 2c-3 0-6.8-1.8-8.3-2.8l-54.2-40.9L93.5 322.3l-.4-.3-.2-.1c-14.3-10.8-24.8-26-29.7-43.3s-4.2-35.7 2.2-52.5l.5-1.2 44.7-116.4c.9-2.3 2.5-4.3 4.5-5.6c1.6-1 3.4-1.6 5.2-1.8c1.3-.7 2.1-.4 3.4 .1c.6 .2 1.2 .5 2 .7c1 .4 1.6 .9 2.4 1.5c.6 .4 1.2 1 2.1 1.5c1.2 1.4 2.2 3 2.7 4.8l29.2 92.2H285l30.2-92.2c.5-1.8 1.4-3.4 2.6-4.8s2.8-2.4 4.5-3.1c1.7-.6 3.6-.9 5.4-.7s3.6 .8 5.2 1.8c2 1.3 3.7 3.3 4.6 5.6z" />
-					</svg></a></span>
-			&nbsp;&nbsp;
+			<a href="https://www.gitlab.com/gaganthind" target="_blank" rel="noopener noreferrer" aria-label="Gitlab profile">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+					<path
+						d="M0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64C28.7 32 0 60.7 0 96zm337.5 12.5l44.6 116.4 .4 1.2c5.6 16.8 7.2 35.2 2.3 52.5c-5 17.2-15.4 32.4-29.8 43.3l-.2 .1-68.4 51.2-54.1 40.9c-.5 .2-1.1 .5-1.7 .8c-2 1-4.4 2-6.7 2c-3 0-6.8-1.8-8.3-2.8l-54.2-40.9L93.5 322.3l-.4-.3-.2-.1c-14.3-10.8-24.8-26-29.7-43.3s-4.2-35.7 2.2-52.5l.5-1.2 44.7-116.4c.9-2.3 2.5-4.3 4.5-5.6c1.6-1 3.4-1.6 5.2-1.8c1.3-.7 2.1-.4 3.4 .1c.6 .2 1.2 .5 2 .7c1 .4 1.6 .9 2.4 1.5c.6 .4 1.2 1 2.1 1.5c1.2 1.4 2.2 3 2.7 4.8l29.2 92.2H285l30.2-92.2c.5-1.8 1.4-3.4 2.6-4.8s2.8-2.4 4.5-3.1c1.7-.6 3.6-.9 5.4-.7s3.6 .8 5.2 1.8c2 1.3 3.7 3.3 4.6 5.6z" />
+				</svg></a>
 
-			<!-- LinkedIn -->
-			<span title="LinkedIn">
-				<a href="https://www.linkedin.com/in/gthind" target="_blank">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="32">
-						<path
-							d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
-					</svg></a></span>
-			&nbsp;&nbsp;
+			<a href="https://www.linkedin.com/in/gthind" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">
+					<path
+						d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+				</svg></a>
 
-			<!-- Contact Us -->
-			<span title="Contact Us">
-				<a href="mailto:contact@gaganthind.in" target="_blank">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="32">
-						<path
-							d="M215.4 96L144 96l-36.2 0L96 96l0 8.8L96 144l0 40.4 0 89L.2 202.5c1.6-18.1 10.9-34.9 25.7-45.8L48 140.3 48 96c0-26.5 21.5-48 48-48l76.6 0 49.9-36.9C232.2 3.9 243.9 0 256 0s23.8 3.9 33.5 11L339.4 48 416 48c26.5 0 48 21.5 48 48l0 44.3 22.1 16.4c14.8 10.9 24.1 27.7 25.7 45.8L416 273.4l0-89 0-40.4 0-39.2 0-8.8-11.8 0L368 96l-71.4 0-81.3 0zM0 448L0 242.1 217.6 403.3c11.1 8.2 24.6 12.7 38.4 12.7s27.3-4.4 38.4-12.7L512 242.1 512 448s0 0 0 0c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64c0 0 0 0 0 0zM176 160l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
-					</svg></a></span>
+			<a href="mailto:contact@gaganthind.in" aria-label="Send me an email">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">
+					<path
+						d="M215.4 96L144 96l-36.2 0L96 96l0 8.8L96 144l0 40.4 0 89L.2 202.5c1.6-18.1 10.9-34.9 25.7-45.8L48 140.3 48 96c0-26.5 21.5-48 48-48l76.6 0 49.9-36.9C232.2 3.9 243.9 0 256 0s23.8 3.9 33.5 11L339.4 48 416 48c26.5 0 48 21.5 48 48l0 44.3 22.1 16.4c14.8 10.9 24.1 27.7 25.7 45.8L416 273.4l0-89 0-40.4 0-39.2 0-8.8-11.8 0L368 96l-71.4 0-81.3 0zM0 448L0 242.1 217.6 403.3c11.1 8.2 24.6 12.7 38.4 12.7s27.3-4.4 38.4-12.7L512 242.1 512 448s0 0 0 0c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64c0 0 0 0 0 0zM176 160l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
+				</svg></a>
 		</section>
 	</main>
 </body>
@@ -106,11 +88,9 @@
 		Copyright © 2023-2025 Gagandeep Singh Thind. All rights reserved.
 	</p>
 	<p>
-		<a href="https://fontawesome.com" target="_blank">Icons by FontAwesome</a>
-		&nbsp;
-		<a href="https://www.svgrepo.com" target="_blank">Icons by SvgRepo</a>
-		&nbsp;
-		<a href="https://favicon.io/" target="_blank">Favicon by favicon.io</a>
+		<a href="https://fontawesome.com" target="_blank" rel="noopener noreferrer">Icons by FontAwesome</a>
+		<a href="https://www.svgrepo.com" target="_blank" rel="noopener noreferrer">Icons by SvgRepo</a>
+		<a href="https://favicon.io/" target="_blank" rel="noopener noreferrer">Favicon by favicon.io</a>
 	</p>
 	<p>
 		This website and I (Gagandeep Singh Thind) are not affiliated with, endorsed by, or in any way
@@ -119,5 +99,4 @@
 		references for informational purposes only.
 	</p>
 </footer>
-
 </html>
