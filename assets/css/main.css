@@ -1,24 +1,20 @@
 :root {
     --sans: Cambria;
-    text-align: center;
-    font-size: medium;
-}
-
-:root[color-mode="light"] {
     --surface1: #e6e6e6;
     --tertiary: #555353;
     --element1: #111111;
+    text-align: center;
 }
 
 :root[color-mode="dark"] {
     --surface1: #262626;
     --tertiary: #ecd885;
     --element1: #eeeeee;
+}
 
-    svg:not(.fa-sun) {
-        filter: invert(100%);
-        transition: filter 0.3s ease;
-    }
+:root[color-mode="dark"] svg:not(.fa-sun) {
+    filter: invert(100%);
+    transition: filter 0.3s ease;
 }
 
 html {
@@ -26,6 +22,10 @@ html {
     line-height: 1.5;
     background-color: var(--surface1, #e6e6e6);
     transition: background-color 0.3s ease;
+}
+
+body {
+    color: var(--element1);
 }
 
 #toggleMode {
@@ -50,30 +50,32 @@ html {
     transform: scale(1.1);
 }
 
+.fa-sun,
+.fa-moon {
+    font-size: 1.5em;
+    pointer-events: none;
+}
+
 .fa-sun {
-    fill: var(--tertiary, #555353);
-    stroke: var(--tertiary, #555353);
+    fill: var(--tertiary);
+    stroke: var(--tertiary);
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
-    font-size: 1.5em;
     display: inline;
     transition: opacity 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
-    pointer-events: none;
 }
 
 .fa-moon {
-    fill: var(--tertiary, #ecd885);
-    font-size: 1.5em;
+    fill: var(--tertiary);
     display: none;
     transition: opacity 0.3s ease, fill 0.3s ease;
-    pointer-events: none;
 }
 
 a {
-    color: var(--element1, #111111);
-    transition: color 0.3s ease;
+    color: var(--element1);
     display: inline-block;
+    transition: color 0.3s ease;
 }
 
 a svg {
@@ -88,7 +90,7 @@ section a:not(:last-child) {
 
 a:focus,
 #toggleLabel:focus-within {
-    outline: 2px solid var(--tertiary, #555353);
+    outline: 2px solid var(--tertiary);
     outline-offset: 4px;
     border-radius: 4px;
 }
@@ -100,11 +102,6 @@ main {
     height: 90%;
     overflow-y: auto;
     z-index: 1;
-}
-
-section {
-    color: var(--element1, #111111);
-    transition: color 0.3s ease;
 }
 
 main h1 {
@@ -121,8 +118,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    color: var(--element1, #111111);
-    background-color: var(--surface1, #e6e6e6);
+    background-color: var(--surface1);
     font-size: xx-small;
     line-height: 1;
     transition: color 0.3s ease, background-color 0.3s ease;
@@ -141,7 +137,7 @@ footer a:not(:last-child) {
         height: 1.8em;
     }
 
-    svg {
+    a svg {
         width: 20px;
         height: 20px;
     }
@@ -169,7 +165,7 @@ footer a:not(:last-child) {
         height: 2em;
     }
 
-    svg {
+    a svg {
         width: 26px;
         height: 26px;
     }

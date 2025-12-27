@@ -4,30 +4,27 @@ const initDarkMode = () => {
     const sunIcon = document.querySelector(".fa-sun");
     const moonIcon = document.querySelector(".fa-moon");
 
-    const toggleDarkMode = (element) => {
-        const checked = element.checked;
-
-        sunIcon.style.display = checked ? "inline" : "none";
-        moonIcon.style.display = checked ? "none" : "inline";
-
-        const colorModeAttr = checked ? "dark" : "light";
-        document.documentElement.setAttribute("color-mode", colorModeAttr);
-        localStorage.setItem("color-mode", colorModeAttr);
+    const applyColorMode = (isDark) => {
+        sunIcon.style.display = isDark ? "inline" : "none";
+        moonIcon.style.display = isDark ? "none" : "inline";
+        const mode = isDark ? "dark" : "light";
+        document.documentElement.setAttribute("color-mode", mode);
+        localStorage.setItem("color-mode", mode);
     };
 
     // Check user preference
-    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
-    const storedColorMode = localStorage.getItem("color-mode");
-    const enableDarkMode = storedColorMode === "dark" || (prefersDarkMode.matches && !storedColorMode);
+    const storedMode = localStorage.getItem("color-mode");
+    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDarkMode = storedMode === "dark" || (prefersDarkMode && !storedMode);
 
-    toggleMode.checked = enableDarkMode;
-    toggleDarkMode(toggleMode);
+    toggleMode.checked = isDarkMode;
+    applyColorMode(isDarkMode);
 
     // Enable dark mode button. This has been disabled by default incase, user has explicitly blocked javascript. 
     toggleLabel.style.display = "flex";
 
     // Add change event listener
-    toggleMode.addEventListener('change', (e) => toggleDarkMode(e.currentTarget));
+    toggleMode.addEventListener('change', (e) => applyColorMode(e.target.checked));
 };
 
 const initServiceWorker = () => {

@@ -1,4 +1,4 @@
-const version = '2.5.0';
+const version = '2.5.1';
 const staticCache = `staticCache-${version}`;
 
 const assets = ['/', '/assets/js/main.js', '/assets/css/main.css'];
@@ -28,28 +28,19 @@ self.addEventListener('activate', (event) => {
     );
 });
 
-// Service worker intercepts a fetch call
+// Service worker intercepts fetch calls
 self.addEventListener('fetch', (event) => {
-    if (event.request.method !== 'GET') {
-        // Don't intercept non-GET requests
-        return;
-    };
-
-    const fetchFromServer = () => {
-        return fetch(event.request).then(fetchResponse => handleFetchResponse(fetchResponse, event));
-    };
-
-    const handleFetchResponse = (fetchResponse, event) => {
-        return caches.open(staticCache)
-            .then(cache => {
-                cache.put(event.request, fetchResponse.clone());
-                return fetchResponse;
-            });
-    };
+    if (event.request.method !== 'GET') return;
 
     event.respondWith(
-        caches
-            .match(event.request)
-            .then(cached => cached || fetchFromServer())
+        caches.match(event.request).then(cached => {
+            if (cached) return cached;
+            return fetch(event.request).then(response => {
+                return caches.open(staticCache).then(cache => {
+                    cache.put(event.request, response.clone());
+                    return response;
+                });
+            });
+        })
     );
 });
